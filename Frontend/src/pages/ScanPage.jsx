@@ -105,7 +105,11 @@ export default function ScanPage(){
     async function fetchParseImage(){
         try {
             const formData = new FormData();
-            formData.append('file', file);
+            formData.append("file", file);
+            formData.append("language", "eng")
+            formData.append("isOverlayRequired", "false")
+            formData.append("OCREngine", "2")
+
             const response = await fetch('http://localhost:8080/imagetext/parse', {
                 method: "POST",
                 headers: {
