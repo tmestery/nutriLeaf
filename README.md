@@ -74,7 +74,7 @@ brew install tesseract
 
 ## Contributors
 
-* **Tyler Mestery** – Backend, local LLM integration, services, and overall project architecture
+* **Tyler Mestery** – Backend, local LLM integration, services, and project architecture
 * **Mason Hart** – Frontend development, UI, login/signup pages, homepage, styling
 
 ---
@@ -82,3 +82,4 @@ brew install tesseract
 ## License
 
 MIT License
+
