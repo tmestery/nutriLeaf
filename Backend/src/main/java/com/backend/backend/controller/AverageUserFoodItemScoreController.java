@@ -12,6 +12,10 @@ public class AverageUserFoodItemScoreController {
 
     private FoodItemScoreService foodScoreService;
 
+    public AverageUserFoodItemScoreController() {
+        this.foodScoreService = new FoodItemScoreService();
+    }
+
     // GET http://localhost:8080/info/score/average/{username}
     @GetMapping("/score/average/{username}")
     public Double getUserAverageScore(@PathVariable String username) {

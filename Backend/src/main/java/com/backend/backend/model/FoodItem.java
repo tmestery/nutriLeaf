@@ -1,12 +1,11 @@
 package com.backend.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 public class FoodItem {
 
@@ -14,11 +13,17 @@ public class FoodItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String itemName;
+    @Column(columnDefinition = "TEXT")
     private String rawIngredientList;
+
+    @Column(columnDefinition = "TEXT")
     private String nutritionBreakdown;
+
     private int healthScore;
     private double costEstimate;
     private String generatedWarnings;
+
+    @Column(columnDefinition = "TEXT")
     private String recommendations;
 
     public String getItemName() {
