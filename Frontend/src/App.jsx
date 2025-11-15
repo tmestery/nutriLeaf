@@ -9,16 +9,20 @@ import HistoryPage from './pages/HistoryPage'
 import ProfilePage from './pages/ProfilePage'
 
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    username: ""
+  })
+
   return (
     <Router>
       <Routes>
         <Route path='/'>
-          <Route index element={<HomePage />} />
-          <Route path='history' element={<HistoryPage />} />
-          <Route path='profile' element={<ProfilePage />} />
+          <Route index element={<HomePage userInfo={userInfo} />} />
+          <Route path='history' element={<HistoryPage userInfo={userInfo} />} />
+          <Route path='profile' element={<ProfilePage userInfo={userInfo} />} />
         </Route>
         <Route path='/auth/'>
-          <Route path='login' element={<LoginPage />} />
+          <Route path='login' element={<LoginPage setUserInfo={setUserInfo} />} />
           <Route path='signup' element={<SignupPage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />

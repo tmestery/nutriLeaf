@@ -1,0 +1,21 @@
+
+.page-header {
+  text-align: center;
+  font-size: 3.0em;
+  line-height: 1.0;
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+  color: var(--color-indigodye);
+}
+.page-content {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+}
+.page-content-header {
+  text-align: center;
+  font-size: 2.0em;
+  line-height: 1.0;
+  margin: 8px 0px 8px 0px;
+  text-align: center;
+  color: var(--color-indigodye);
+}

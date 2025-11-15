@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/auth.css'
 
-export default function LoginPage(){
+export default function LoginPage({setUserInfo}){
     const [loginInfo, setLoginInfo] = useState({
         username: "",
         password: ""
@@ -30,6 +30,9 @@ export default function LoginPage(){
                     body: JSON.stringify(loginInfo)
                 })
                 if(response.ok){
+                    setUserInfo((prev) => {
+                        return {...prev, username: loginInfo.username}
+                    })
                     navigate('/')
                 } else{
                     alert("Username or Password was incorrect")
