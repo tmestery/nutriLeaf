@@ -39,4 +39,10 @@ public class UserInfoController {
     public long getUserTotalWarnings(@PathVariable String username) {
         return foodScoreService.getUserTotalWarnings(username);
     }
+
+    // GET http://localhost:8080/info/total/warning/item/{itemName}
+    @GetMapping("/total/warning/item/{itemName}")
+    public int getTotalWarningsForItem(@PathVariable String itemName) {
+        return foodScoreService.getTotalWarningsForItem(itemName);
+    }
 }

@@ -54,7 +54,7 @@ public class FoodItemScore {
         this.user = user;
     }
 
-    // Gets the total warnings for a specific item
+    // Gets the total warnings for one score
     public int getWarningCount() {
         if (badIngredients == null || badIngredients.isEmpty()) return 0;
         return badIngredients.split(",").length; // assuming comma-separated ingredients
