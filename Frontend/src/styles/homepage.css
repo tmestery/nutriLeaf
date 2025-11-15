@@ -22,9 +22,35 @@
   color: var(--color-indigodye);
 }
 .scan-upload-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
   background-image: url(../assets/gray-plate.jpeg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+}
+.scan-upload-form label {
+  display: none;
+  font-size: 100px;
+  text-align: center;
+}
+.scan-upload-form input {
+  height: 40%;
+  width: 40%;
+  align-self: center;
+}
+.scan-upload-form input::file-selector-button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.scan-upload-form input::-ms-browse {
+  font-size: 3em;
+  color: var(--color-richblack);
 }

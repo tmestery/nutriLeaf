@@ -1,11 +1,12 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import '../styles/homepage.css'
 
 export default function HomePage({userInfo}){
+    const navigate = useNavigate()
 
-    function startScan(){
-        alert("starting scan")
+    function startScan(event){
+        navigate('/scan', {state: {file: event.target.files[0]}})
     }
 
     return(
@@ -21,16 +22,16 @@ export default function HomePage({userInfo}){
             </div>
             <div className="page-content-panel" id="feature-panel">
                 <h1 className="page-content-header">New Scan</h1>
-                <form className="scan-upload-form" onSubmit={startScan}>
-                    <label for="file-input">New Scan</label>
+                <form className="scan-upload-form">
+                    <label>New Scan</label>
                     <input
                         type="file"
                         id="file-input"
                         name="scanner"
                         accept="image/*"
-                        multiple
+                        onChange={startScan}
+                        multiple={false}
                     />
-                    <button type="submit">Upload</button>
                 </form>
             </div>
             <div className="page-content-panel" id="profile-panel">

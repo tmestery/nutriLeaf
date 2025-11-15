@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import HistoryPage from './pages/HistoryPage'
 import ProfilePage from './pages/ProfilePage'
+import ScanPage from './pages/ScanPage'
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<HomePage userInfo={userInfo} />} />
           <Route path='history' element={<HistoryPage userInfo={userInfo} />} />
           <Route path='profile' element={<ProfilePage userInfo={userInfo} />} />
+          <Route path='scan' element={<ScanPage />} />
         </Route>
         <Route path='/auth/'>
           <Route path='login' element={<LoginPage setUserInfo={setUserInfo} />} />
