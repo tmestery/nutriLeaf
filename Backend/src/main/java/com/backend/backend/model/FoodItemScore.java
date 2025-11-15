@@ -26,7 +26,7 @@ public class FoodItemScore {
         return itemName;
     }
 
-    private void serItemName(String itemName) {
+    private void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
