@@ -17,12 +17,18 @@ public class LocalLLMController {
         this.aiHealthService = aiHealthService;
     }
 
+    // Example Request for analyzing:
+    // {
+    //    "productName": "Banana",
+    //    "ParsedText": "Nutrition Facts\\n1 medium banana (118g)\\nCalories..."
+    // }
+
     // POST http://localhost:8080/llm/analyze
     @PostMapping("/analyze")
     public Map<String, Object> analyzeProduct(@RequestBody Map<String, String> payload) {
         String productName = payload.get("productName");
         String ingredientsList = payload.get("ingredientsList");
-        System.out.println("Ollama request complete!");
+        System.out.println("Ollama request initiated!");
         return aiService.analyzeIngredientsWithRecommendation(productName, ingredientsList);
     }
 
