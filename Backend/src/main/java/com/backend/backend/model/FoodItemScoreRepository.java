@@ -4,9 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface FoodItemScoreRepository extends JpaRepository<FoodItemScore, Long> {
+
+    List<FoodItemScore> findByItemName(String itemName);
 
     @Query("SELECT AVG(f.score) FROM FoodItemScore f WHERE f.user.username = :username")
     Double getWebUserAverageScore(@Param("username") String username);
