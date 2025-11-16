@@ -13,7 +13,7 @@ export default function ScanResultPage() {
   const score = scanResult.score
   const analysis = scanResult.analysis
   const badIngredients = scanResult.ingredients_of_concern
-  const recommendations = scanResult.recommended_alternative
+  const recommendations = scanResult.recommended_alternatives
   
   // Dynamic color based on score
   const getScoreColor = (score) => {
