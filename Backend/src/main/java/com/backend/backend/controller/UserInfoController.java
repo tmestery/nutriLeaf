@@ -60,4 +60,16 @@ public class UserInfoController {
     public List<FoodItem> getFoodItemsByUser(@PathVariable String username) {
         return foodItemRepository.findAllByUser_Username(username);
     }
+
+//    SELECT
+//    f.item_name,
+//    f.health_score,
+//    s.score,
+//    s.bad_ingredients,
+//    s.timestamp
+//    FROM food_item_score s
+//    JOIN food_item f ON s.item_name = f.item_name
+//    WHERE s.user_id = 2
+//    ORDER BY s.timestamp DESC;
+
 }
