@@ -9,12 +9,15 @@ export default function HistoryPage({userInfo}){
     const navigate = useNavigate()
 
     useEffect(()=>{
+        if(!userInfo.username){
+            navigate('/auth/login')
+        }
         getScans()
     }, [])
 
     async function getScans(){
         try {
-            const response = await fetch('url') 
+            const response = await fetch('http://food/items/'+userInfo.username) 
             const result = await response.json()
             setScanList(result)
             setFiltered(result)
@@ -23,10 +26,14 @@ export default function HistoryPage({userInfo}){
         }
     }
 
-    function handleChange(event){
-
+    function handleChange(e){
+        e.preventDefault()
+        let searchTerm = e.target.value.toLowerCase();
+        setFiltered(scanList.filter((scan) => {
+            let lowerName = scan.name.toLowerCase()
+            return lowerName.includes(searchTerm)
+        }));
     }
-    
 
     return(
     <>
@@ -38,7 +45,11 @@ export default function HistoryPage({userInfo}){
     <hr />
 
     <div className="page-content">
-
+        {scanList.map((scan) => {
+            return (
+                <button onClick={() => navigate('/scan/result', {state : {scanResult: scan}})}>{scan.product_name}</button>
+            )
+        })}
     </div>
     </>
     )

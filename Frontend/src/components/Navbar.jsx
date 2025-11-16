@@ -18,7 +18,7 @@ export default function Navbar(){
                 </li>
                 <li className="h-navbar-element">
 
-                    <Link className="h-navbar-element-link" to="/profile">Profile</Link>
+                    <Link className="h-navbar-element-link" to="/auth/login">Login</Link>
                 </li>
             </ul>
         </>
