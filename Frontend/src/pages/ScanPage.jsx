@@ -57,8 +57,9 @@ export default function ScanPage(){
             })
             const result = await response.json()
             if(response.ok){
+              console.log(result)
               setScanProgress(MAX_PROGRESS)
-              navigate('/scan/result', {state : {scanResult: result}})
+              // navigate('/scan/result', {state : {scanResult: result}})
             }         
         } catch (error) {
             console.error(error.message)
