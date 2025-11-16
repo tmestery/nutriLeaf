@@ -1,16 +1,14 @@
 package com.backend.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter
 @Entity
 public class Ingredient {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingredient_seq_gen")
+    @SequenceGenerator(name = "ingredient_seq_gen", sequenceName = "ingredient_id_seq", allocationSize = 1)
     private Long id;
 
     private String name;

@@ -10,8 +10,10 @@ import lombok.Setter;
 public class FoodItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_item_seq_gen")
+    @SequenceGenerator(name = "food_item_seq_gen", sequenceName = "food_item_seq", allocationSize = 1)
     private Long id;
+
     private String itemName;
     @Column(columnDefinition = "TEXT")
     private String rawIngredientList;
@@ -19,12 +21,24 @@ public class FoodItem {
     @Column(columnDefinition = "TEXT")
     private String nutritionBreakdown;
 
+    @Column(columnDefinition = "TEXT")
     private int healthScore;
+
     private double costEstimate;
+
+    @Column(columnDefinition = "TEXT")
     private String generatedWarnings;
 
     @Column(columnDefinition = "TEXT")
     private String recommendations;
+
+    @ManyToOne
+    @JoinColumn(name = "web_user")  // this should match your DB column
+    private WebUser user;
+
+    public WebUser getUser() { return user; }
+
+    public void setUser(WebUser user) { this.user = user; }
 
     public String getItemName() {
         return itemName;
