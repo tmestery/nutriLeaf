@@ -48,6 +48,7 @@ public class ImageParsingController {
         // Send the POST request
         ResponseEntity<String> response = restTemplate.postForEntity(ocrEndpoint, requestEntity, String.class);
 
+        System.out.println(response.getBody());
         return response.getBody();
     }
 }
