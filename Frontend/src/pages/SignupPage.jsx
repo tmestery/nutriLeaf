@@ -69,7 +69,7 @@
 //     )
 // }
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignupPage() {
@@ -150,7 +150,7 @@ export default function SignupPage() {
         {/* Form */}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-            <label htmlFor="email" style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Email</label>
+            <label style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Email</label>
             <input
               id="email"
               type="text"
@@ -167,7 +167,7 @@ export default function SignupPage() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-            <label htmlFor="username" style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Username</label>
+            <label style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Username</label>
             <input
               id="username"
               type="text"
@@ -184,7 +184,7 @@ export default function SignupPage() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-            <label htmlFor="password" style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Password</label>
+            <label style={{ marginBottom: '0.25rem', color: '#2d3748' }}>Password</label>
             <input
               id="password"
               type="password"
