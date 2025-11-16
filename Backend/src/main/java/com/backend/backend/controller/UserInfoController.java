@@ -20,9 +20,11 @@ public class UserInfoController {
     private UserRepository userRepository;
 
     @Autowired
-    public UserInfoController(FoodItemScoreService foodScoreService, TotalScanService totalScanService) {
+    public UserInfoController(FoodItemScoreService foodScoreService, TotalScanService totalScanService, FoodItemRepository foodItemRepository, UserRepository userRepository) {
         this.foodScoreService = foodScoreService;
         this.totalScanService = totalScanService;
+        this.foodItemRepository = foodItemRepository;
+        this.userRepository = userRepository;
     }
 
     // GET http://localhost:8080/info/score/average/{username}
@@ -53,9 +55,9 @@ public class UserInfoController {
         return foodScoreService.getTotalWarningsForItem(itemName);
     }
 
-    // GET GET http://localhost:8080/info/food/items/{username}
+    // GET http://localhost:8080/info/food/items/{username}
     @GetMapping("/food/items/{username}")
     public List<FoodItem> getFoodItemsByUser(@PathVariable String username) {
-        return foodItemRepository.findAllByUsername(username);
+        return foodItemRepository.findAllByUser_Username(username);
     }
 }

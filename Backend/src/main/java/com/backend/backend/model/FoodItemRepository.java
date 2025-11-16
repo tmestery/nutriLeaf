@@ -13,6 +13,5 @@ public interface FoodItemRepository extends JpaRepository<FoodItem, Long> {
 
     Optional<FoodItem> findByItemName(String itemName);
 
-    @Query("SELECT f FROM FoodItem f JOIN FoodItemScore s ON f.itemName = s.itemName WHERE s.user.username = :username")
-    List<FoodItem> findAllByUsername(@Param("username") String username);
+    List<FoodItem> findAllByUser_Username(String username);
 }
