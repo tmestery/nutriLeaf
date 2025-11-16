@@ -3,11 +3,12 @@ import { Upload, Camera, User} from 'lucide-react';
 import {useNavigate} from 'react-router-dom'
 
 export default function HomeScreen({userInfo}) {
+  const [productName, setProductName] = useState("")
   const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate()
 
     function handleImageUpload(event){
-        navigate('/scan', {state: {file: event.target.files[0]}})
+        navigate('/scan', {state: {productName: productName, file: event.target.files[0]}})
     }
 
   const clearImage = () => {
@@ -21,6 +22,7 @@ export default function HomeScreen({userInfo}) {
         <div className="max-w-4xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
+              <img src="../public/nutriLeaf.png" width="50px" />
               <div>
                 {userInfo.username ? <h1 className="text-green-700">Welcome back, {userInfo.username}!</h1> :
                 <h1 className="text-green-700">Welcome back!</h1>}
@@ -40,13 +42,30 @@ export default function HomeScreen({userInfo}) {
 
         {/* Upload Plate Section */}
         <div className="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border relative overflow-hidden bg-white shadow-lg">
-          <div className="p-12">
-            <div className="text-center mb-8">
+          <div className="p-8">
+            <div className="text-center mb-8 ">
               <h2 className="text-gray-800 mb-2">Scan Your Meal</h2>
               <p className="text-gray-500">
                 Upload a photo to analyze nutrition and ingredients
               </p>
             </div>
+
+            <input 
+            type="text"
+            name="product-name"
+            onChange={(e=>setProductName(e.target.value))}
+            placeholder="Enter Product Name"
+            style={{
+              width: "60%",
+              marginLeft: "20%",
+              marginBottom: "14px",
+              alignSelf: "center",
+              boxSizing: "border-box",
+              border: "2px solid oklch(84.5% 0.143 164.978)",
+              borderRadius: "4px",
+              textAlign: "center"
+            }}
+            />
 
             {/* Plate Design */}
             <div className="relative max-w-md mx-auto">

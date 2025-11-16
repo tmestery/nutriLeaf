@@ -12,7 +12,8 @@ export default function ScanPage(){
     const [ingredients, setIngredients] = useState({})
     const location = useLocation()
     const navigate = useNavigate()
-    const {file} = location.state || {}
+    const {file} = location.state.file || {}
+    const {productName} = location.state.productName || {}
 
     useEffect(()=>{
       console.log(maxProgress)
@@ -50,14 +51,14 @@ export default function ScanPage(){
 
     async function fetchLLMAnalyze(){
         try {
-            console.log(JSON.stringify({productName: "Product Name", ingredientsList: ingredients.ParsedResults[0]?.ParsedText}))
+            console.log(JSON.stringify({productName: productName, ingredientsList: ingredients.ParsedResults[0]?.ParsedText}))
 
             const response = await fetch('http://localhost:8080/llm/analyze', {
               method: "POST",
               headers: {
                   "Content-Type": "application/json"
               },
-              body: JSON.stringify({productName: "Product Name", ingredientsList: ingredients.ParsedResults[0]?.ParsedText})
+              body: JSON.stringify({productName: productName, ingredientsList: ingredients.ParsedResults[0]?.ParsedText})
             })
             const result = await response.json()
             if(response.ok){
