@@ -15,6 +15,7 @@ export default function HomePage({userInfo}){
         {userInfo.username ? 
         <h1 className="page-header">Welcome, {userInfo.username}!</h1> : 
         <h1 className="page-header">Welcome to RecipeBlast!</h1>}
+        <hr />
 
         <div className="page-content">
             <div className="page-content-panel" id="history-panel">

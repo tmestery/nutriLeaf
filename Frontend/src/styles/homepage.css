@@ -1,6 +1,7 @@
 
 .page-header {
   text-align: center;
+  padding: 10px 0px 10px 0px;
   font-size: 3.0em;
   line-height: 1.0;
   margin: 10px 0px 10px 0px;
@@ -53,4 +54,10 @@
 .scan-upload-form input::-ms-browse {
   font-size: 3em;
   color: var(--color-richblack);
+}
+
+hr {
+  margin-left: 10%;
+  width: 80%;
+  color: var(--color-powderblue);
 }
