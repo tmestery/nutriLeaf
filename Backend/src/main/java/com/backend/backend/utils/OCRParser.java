@@ -14,10 +14,4 @@ public class OCRParser {
             return "";
         }
     }
-
-    public static void main(String[] args) {
-        String ocrOutput = "..."; // your OCR text blob
-        String parsedText = extractParsedText(ocrOutput);
-        System.out.println(parsedText);
-    }
 }

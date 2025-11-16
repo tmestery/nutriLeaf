@@ -26,11 +26,23 @@ public class LocalLLMController {
     // POST http://localhost:8080/llm/analyze
     @PostMapping("/analyze")
     public Map<String, Object> analyzeProduct(@RequestBody Map<String, String> payload) {
+//        String productName = payload.get("productName");
+//        String ingredientsList = payload.get("ingredientsList");
+//        System.out.println("Ollama request initiated!");
+//        Map<String, Object> ai = aiService.analyzeIngredientsWithRecommendation(productName, ingredientsList);
+//        return ai;
         String productName = payload.get("productName");
         String ingredientsList = payload.get("ingredientsList");
+
+        if (productName == null || productName.isBlank()) {
+            throw new IllegalArgumentException("productName cannot be null or empty");
+        }
+        if (ingredientsList == null || ingredientsList.isBlank()) {
+            throw new IllegalArgumentException("ingredientsList cannot be null or empty");
+        }
+
         System.out.println("Ollama request initiated!");
-        Map<String, Object> ai = aiService.analyzeIngredientsWithRecommendation(productName, ingredientsList);
-        return ai;
+        return aiService.analyzeIngredientsWithRecommendation(productName, ingredientsList);
     }
 
     // GET http://localhost:8080/llm/health/tip

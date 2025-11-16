@@ -24,9 +24,9 @@ public class AiAnalysisService {
     }
 
     public Map<String, Object> analyzeIngredientsWithRecommendation(String productName, String ingredientsList) {
-        OCRParser ocrParse = new OCRParser();
-        ingredientsList = ocrParse.extractParsedText(ingredientsList);
-        System.out.println(ingredientsList);
+//        ingredientsListOCRParser ocrParse = new OCRParser();
+//        ingredientsList = ocrParse.extractParsedText(ingredientsList);
+//        System.out.println(ingredientsList);
 
         // 1. Updated prompt
         String prompt = "You are a nutrition analysis model. You are given a product name and its ingredients list. " +
