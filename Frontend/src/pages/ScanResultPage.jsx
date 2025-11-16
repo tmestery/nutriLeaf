@@ -48,12 +48,12 @@ export default function ScanResultPage() {
               >
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    ingredient.severity === score > 35 ? 'text-yellow-600' :
-                      ingredient.severity === score > 15 ? 'text-amber-600' : 'text-red-600'
+                    ingredient.severity === ingredient.score >= 33 ? 'text-yellow-600' :
+                      ingredient.severity === ingredient.score > 15 ? 'text-amber-600' : 'text-red-600'
                   }`}>
                     <AlertCircle className={`w-4 h-4 ${
-                      ingredient.severity === score > 35 ? 'text-yellow-600' :
-                      ingredient.severity === score > 15 ? 'text-amber-600' : 'text-red-600'
+                      ingredient.severity === ingredient.score >= 33 ? 'text-yellow-600' :
+                      ingredient.severity === ingredient.score > 15 ? 'text-amber-600' : 'text-red-600'
                     }`} />
                   </div>
                   <div className="flex-1">
@@ -72,7 +72,7 @@ export default function ScanResultPage() {
                 <div className="flex items-center justify-between mb-4" style={{width:"100%"}}>
                     <div className="flex items-center gap-3" style={{width:"100%"}}>
                         <div style={{width:"100%"}}>
-                            <h1 className="text-right text-gray-900" style={{fontSize:42+"px", textAlign:"center"}}>{scanResult.productName}</h1>
+                            <h1 className="text-right text-gray-900" style={{fontSize:42+"px", textAlign:"center"}}>{scanResult.product_name}</h1>
                             {/* <p className="text-sm text-gray-500 text-right">Chocolate Chip</p> */}
                         </div>
                     </div>
@@ -167,7 +167,6 @@ export default function ScanResultPage() {
                     <span className="text-sm text-gray-500">Score: {product.score}</span>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors flex-shrink-0" />
               </button>
             ))}
           </div>
