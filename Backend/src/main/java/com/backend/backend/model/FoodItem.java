@@ -10,8 +10,10 @@ import lombok.Setter;
 public class FoodItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_item_seq_gen")
+    @SequenceGenerator(name = "food_item_seq_gen", sequenceName = "food_item_seq", allocationSize = 1)
     private Long id;
+
     private String itemName;
     @Column(columnDefinition = "TEXT")
     private String rawIngredientList;

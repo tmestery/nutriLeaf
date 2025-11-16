@@ -1,11 +1,6 @@
 package com.backend.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +10,8 @@ import lombok.Setter;
 public class SavedItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "saved_item_seq_gen")
+    @SequenceGenerator(name = "saved_item_seq_gen", sequenceName = "saved_item_id_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne
@@ -24,15 +20,15 @@ public class SavedItem {
 
     @ManyToOne
     @JoinColumn(name = "food_item_id")
-    private FoodItem foodItem;
+    public FoodItem foodItem;
 
-    private String dateSaved;
+    public String dateSaved;
 
-    private String getDateSaved() {
+    public String getDateSaved() {
         return dateSaved;
     }
 
-    private void setDateSaved(String dateSaved) {
+    public void setDateSaved(String dateSaved) {
         this.dateSaved = dateSaved;
     }
 }
