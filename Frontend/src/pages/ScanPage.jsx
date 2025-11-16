@@ -131,7 +131,7 @@ export default function ScanPage(){
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(ingredients)
+                body: JSON.stringify({productName: "Product Name", ingredientsList: ingredients})
             })
             if(response.ok){
                 setMaxProgress(100)
