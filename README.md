@@ -8,11 +8,18 @@ A full-stack application that analyzes recipes and food items, providing nutriti
 
 ## Table of Contents
 
+* [App Preview](#app-preview)
 * [Tech Stack](#tech-stack)
 * [Installation and Usage](#installation-and-usage)
 * [Features](#features)
 * [Contributors](#contributors)
 * [License](#license)
+
+---
+
+## App Preview
+
+![Example Use](https://raw.githubusercontent.com/tmestery/nutriLeaf/main/Frontend/public/Example%20Use.png)
 
 ---
 
@@ -82,5 +89,6 @@ brew install tesseract
 ## License
 
 MIT License
+
 
 
